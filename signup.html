@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="signup.css">
+
+</head>
+<body>
+
+<div>
+
+  <form>
+
+
+    <fieldset>
+
+      <h1>Sign Up</h1>
+
+      <input type="text" placeholder="Username" class="inputs" id="username">
+<br>
+<br>
+      <input type="text" placeholder="Email" class="inputs" id="email">
+<br>
+<br>
+      <input type="password" placeholder="Password" class="inputs" id="password">
+<br>
+<br>
+      <div id="creates"><input type="submit" value="Create An Account" id="create"></div>
+<br>
+<br><br>
+<span>Don't have an account?</span>
+
+        <a href="login.html" >login Up</a>
+
+
+    </fieldset>
+
+
+  </form>
+
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+  import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
+  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyCAlGUy9sXeTiAaIfySXvPXz4o16NWOzNk",
+    authDomain: "retro-doom-2644b.firebaseapp.com",
+    projectId: "retro-doom-2644b",
+    storageBucket: "retro-doom-2644b.appspot.com",
+    messagingSenderId: "762287377361",
+    appId: "1:762287377361:web:352ba17cf327ce7c26aef0",
+    measurementId: "G-LMXFBJ5SH0"
+  };
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getDatabase();
+  const auth = getAuth(app);
+  let EmailInp = document.getElementById('email');
+  let PassInp = document.getElementById('password');
+
+  let Username = document.getElementById('username');
+  
+ 
+  let registerButton = document.getElementById('create');
+
+  let RegisterUser = evt => {
+      evt.preventDefault();
+      createUserWithEmailAndPassword(auth, EmailInp.value, PassInp.value)
+      .then((credentials) =>{
+          alert("user created!");
+          set(),ref(db, 'UsersAuthList/' + credentials.user.uid), {
+              Username:Username.value,
+              email : EmailInp.value,
+
+          }
+      })
+      .catch((error) =>{
+          alert(error.message);
+          console.log(error.code);
+          console.log(error.message);
+      })
+  }
+  registerButton.addEventListener('click', RegisterUser);
+  // registerButton.addEventListener('click', () =>{
+  //       window.location.href= 'login.html';
+  //   })
+
+</script>
+  
+</body>
+</html>

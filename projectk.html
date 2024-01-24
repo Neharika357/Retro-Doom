@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+    *{
+      padding:0px;
+      margin:0px;
+    }
+    
+    #p1{
+      position:fixed;
+      z-index: 10;
+      margin:10px;
+      font-size: 40px;
+      padding:10px;
+      color:black;
+      background-color: rgb(167, 143, 143);
+      border:white solid 2px;
+    }
+    #p2{
+      position:fixed;
+      margin:10px;
+      left:800px;
+      z-index: 10;
+      font-size: 40px;
+    }
+    #p3{
+      position:fixed;
+      margin:10px;
+      z-index: 10;
+      left:1300px;
+      font-size: 40px;
+    }
+
+
+  </style>
+
+</head>
+<body>
+
+  <p id="p1"><span>Score:</span> <span id="score">0</span></p>
+  <p id="p2"><span id="timer">30</span></p>
+  <p><button id="p3">shot gun</button></p>
+  <canvas></canvas>
+  
+  <script src="projectk.js"></script>
+
+  
+</body>
+</html>

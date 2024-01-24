@@ -1,0 +1,85 @@
+*{ 
+  box-sizing: border-box;
+}
+
+
+body{
+  font-size: 20px;
+  background-image: url("neet background a148bce9-9b99-4e00-8910-6cd4ca0c4daf.png");
+  background-repeat: no-repeat;
+  background-size: 2000px 1000px;
+}
+
+fieldset{
+  width:450px;
+  height:500px;
+  border-radius: 10px;
+  position:relative;
+  top:200px;
+  left:38%;
+  backdrop-filter: blur(10px);
+}
+h1{
+  text-align: center;
+}
+#anchor{
+  text-align: end;
+}
+input{
+height:40px;
+width:450px;
+border-radius: 20px;
+font-size: 19px;
+padding:10px 30px;
+margin:5px;
+}
+
+
+#create{
+  width:250px;
+  height:50px;
+  background-color: rgb(6, 101, 20);
+  color:white;
+  font-size: 25px;
+  padding:10px ;
+  position:relative;
+  left:200px;
+  top:50px;
+  
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="login.css">
+
+</head>
+<body>
+  
+
+
+  <div class="page">
+
+    <form>
+
+
+      <fieldset>
+
+        <h1>Login</h1>
+
+        <input type="text" placeholder="Email" class="inputs" id="username">
+<br>
+<br>
+        <input type="password" placeholder="Password" class="inputs" id="password">
+<br>
+<br>
+        <!-- <div id="anchor"><a href="forgot.html" >Forgot Password?</a></div> -->
+<br>
+<br>
+        <input type="submit" placeholder="Login" id="submit" >
+<br>
+<br>
+        <span>Don't have an account?</span>
+
+        <a href="signup.html">Sign Up</a>
+
+
+
+
+
+
+
+      </fieldset>
+
+
+    </form>
+
+  </div>
+
+  <script type="module">
+    
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+    import { getDatabase, get, ref, child } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics.js";
+    const firebaseConfig = {
+    apiKey: "AIzaSyCAlGUy9sXeTiAaIfySXvPXz4o16NWOzNk",
+    authDomain: "retro-doom-2644b.firebaseapp.com",
+    projectId: "retro-doom-2644b",
+    storageBucket: "retro-doom-2644b.appspot.com",
+    messagingSenderId: "762287377361",
+    appId: "1:762287377361:web:352ba17cf327ce7c26aef0",
+    measurementId: "G-LMXFBJ5SH0"
+  };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getDatabase();
+    const auth = getAuth(app);
+    const dbref = ref(db);
+    let EmailInp = document.getElementById('username');
+    let PassInp = document.getElementById('password');
+   
+    let loginButton = document.getElementById('submit');
+    let SignInUser = evt => {
+        evt.preventDefault();
+        signInWithEmailAndPassword(auth, EmailInp.value, PassInp.value)
+        .then((credentials) =>{
+            get(child(dbref, 'UsersAuthList/' + credentials.user.uid)).then((snapshot) =>{
+                if(snapshot.exists){
+                    sessionStorage.setItem("user-info", Json.stringify({
+                        Username : snapshot.val().Username 
+                    }))
+                    alert('User logged in!');
+                    sessionStorage.setItem("user-creds" , JSON.stringify(credentials.user));
+                    window.location.href= 'project.html';
+
+                }
+            })
+        })
+        .catch((error) =>{
+            alert(error.message);
+            console.log(error.code);
+            console.log(error.message);
+        })
+    }
+    loginButton.addEventListener('click', SignInUser);
+    loginButton.addEventListener('click', () =>{
+        window.location.href= 'project.html';
+    })
+
+
+
+</script>
+
+
+</body>
+</html>

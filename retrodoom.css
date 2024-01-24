@@ -1,0 +1,80 @@
+body{
+  background-image: url("neet background a148bce9-9b99-4e00-8910-6cd4ca0c4daf.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 2000px 950px;
+}
+
+*{
+  padding:0px;
+  margin:0px;
+}
+a{
+  color:white;
+}
+.container{
+  height:1000px;
+}
+.box{
+  background-color:black;
+  height:100px;
+  width:100%;
+  
+  display:flex;
+  justify-content: space-around;
+}
+.item{
+  color:white;
+  font-size: 30px;
+  height:100px;
+  width:200px;
+  
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+ #shorttitle{
+  color:rgb(143, 143, 158);
+  text-shadow:5px 5px red;
+  font-size: 100px;
+
+}
+
+#title{
+  
+  height:200px;
+  font-size: 150px;
+  color:rgb(198, 189, 106);
+  text-shadow:5px 5px rgb(204, 90, 19);
+  
+}
+#subtitle{
+  height:200px;
+  width:1000px;
+
+  position:relative;
+  animation-name: retrodoom;
+  animation-duration: 5s;
+  animation-timing-function:cubic-bezier(0.25, -0.07, 0.65, 1.28);
+  animation-delay:1s;
+  animation-iteration-count:infinite;
+  animation-play-state:running;
+}
+@keyframes retrodoom{
+ from{
+    /* transform:skew(10deg);
+    color:#120fb9;
+    text-shadow:5px 5px #961457; */
+    left:0px;
+
+  }
+  to{
+    /* top:100px;
+    left:1050px;
+    transform:skew(20deg);
+    color:#198ebc;
+    text-shadow:5px 5px #E3B5A4; */
+    left:800px;
+  }
+  
+}
