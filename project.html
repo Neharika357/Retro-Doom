@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+    *{
+      padding:0px;
+      margin:0px;
+    }
+    
+    
+    #p1{
+      position:fixed; 
+      z-index: 10;
+      margin:10px;
+      font-size: 40px;
+      color:black;
+    }
+    
+    #p5{
+      position:fixed;
+      z-index: 10;
+      margin:10px;
+      font-size: 40px;
+      color:black;
+      left:500px;
+
+    }
+    #p4{
+      position:fixed;
+      z-index: 10;
+      margin:10px;
+      font-size: 40px;
+      color:black;
+      left:250px;
+
+    }
+    #p2{
+      position:fixed;
+      margin:10px;
+      left:800px;
+      z-index: 10;
+      font-size: 40px;
+      /* color:rgb(218, 162, 89) */
+    }
+    #p3{
+      position:fixed;
+      margin:10px;
+      z-index: 10;
+      left:1500px;
+      /* top:650px; */
+      /* font-size: 40px; */
+    }
+    #displaytext{
+      position:absolute;
+      z-index:10;
+      left:600px;
+      top:300px;
+      color:black;
+      font-size: 60px;
+      
+    }
+
+
+
+  </style>
+
+</head>
+<body>
+
+  <p id="p1"><span>Score:</span> <span id="score">0</span></p>
+  <p id="p5"><span>Shot Gun:</span> <span id="bullet2">10</span></p>
+  <p id="p4"><span>Revolver:</span> <span id="bullet1">25</span></p>
+  
+  <p id="p2"><span id="timer">30</span></p>
+  <p><img src="images.png" alt="" height="100px" width="100px" id="p3"></p>
+  <p id="displaytext"></p>
+
+  
+ 
+  
+
+  <canvas></canvas>
+  
+  <script src="project.js"></script>
+
+  
+</body>
+</html>
